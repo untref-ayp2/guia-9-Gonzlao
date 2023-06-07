@@ -1,5 +1,7 @@
 package actividades
 
+import "fmt"
+
 type Actividad struct {
 	Nombre string
 	Inicio int
@@ -15,7 +17,9 @@ func SelectorActividadesIterativo(actividades []Actividad) []Actividad {
 	seleccionadas = append(seleccionadas, actividades[0])
 	k := 0
 	for i := 1; i < n; i++ {
+		fmt.Printf("%d >= %d \n", actividades[i].Inicio, actividades[k].Fin)
 		if actividades[i].Inicio >= actividades[k].Fin {
+			fmt.Println(actividades[i].Nombre)
 			seleccionadas = append(seleccionadas, actividades[i])
 			k = i
 		}
